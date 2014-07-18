@@ -1,0 +1,82 @@
+/* style fixes: do not overwrite above the separator */
+.gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox],
+.gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio],
+.gform_wrapper.gf_browser_chrome .gfield_checkbox li input {
+	margin-left: 2px;
+}
+
+
+/* is this file written to by the plugin on save? */
+
+/* VARS:
+$input_all_bg
+$input_all_color
+$input_all_border
+
+$input_text_bg
+$input_text_color
+$input_text_border
+
+$input_email_bg
+$input_email_color
+$input_email_border
+
+$input_tel_bg
+$input_tel_color
+$input_tel_border
+
+$input_number_bg
+$input_number_color
+$input_number_border
+
+$input_password_bg
+$input_password_color
+$input_password_border
+
+$textarea_bg
+$textarea_color
+$textarea_border
+
+*/
+
+$form_ID .gform_heading {
+	color: #$custom_color;
+}
+
+.gform_wrapper $form_ID input[type=text] {
+	background-color: #$input_all_bg;
+	border: solid 1px #$input_all_border
+	color: #$input_all_color;
+}
+.gform_wrapper $form_ID input[type=url] {
+	background-color: #$input_all_bg;
+	border: solid 1px #$input_all_border
+	color: #$input_all_color;
+}
+
+.gform_wrapper $form_ID input[type=email] {
+	background-color: #$input_all_bg;
+	border: solid 1px #$input_all_border
+	color: #$input_all_color;
+}
+.gform_wrapper $form_ID input[type=tel] {
+	background-color: #$input_all_bg;
+	border: solid 1px #$input_all_border
+	color: #$input_all_color;
+}
+.gform_wrapper $form_ID input[type=number] {
+	background-color: #$input_all_bg;
+	border: solid 1px #$input_all_border
+	color: #$input_all_color;
+}
+.gform_wrapper $form_ID input[type=password] {
+	background-color: #$input_all_bg;
+	border: solid 1px #$input_all_border
+	color: #$input_all_color;
+}
+
+.gform_wrapper $form_ID textarea {
+	background-color: #$custom_color;
+	color: #$custom_color;
+}
+
