@@ -45,33 +45,33 @@ $form_ID .gform_heading {
 
 .gform_wrapper $form_ID input[type=text] {
 	background-color: #$input_all_bg;
-	border: solid 1px #$input_all_border
+	border: solid 1px #$input_all_border;
 	color: #$input_all_color;
 }
 .gform_wrapper $form_ID input[type=url] {
 	background-color: #$input_all_bg;
-	border: solid 1px #$input_all_border
+	border: solid 1px #$input_all_border;
 	color: #$input_all_color;
 }
 
 .gform_wrapper $form_ID input[type=email] {
 	background-color: #$input_all_bg;
-	border: solid 1px #$input_all_border
+	border: solid 1px #$input_all_border;
 	color: #$input_all_color;
 }
 .gform_wrapper $form_ID input[type=tel] {
 	background-color: #$input_all_bg;
-	border: solid 1px #$input_all_border
+	border: solid 1px #$input_all_border;
 	color: #$input_all_color;
 }
 .gform_wrapper $form_ID input[type=number] {
 	background-color: #$input_all_bg;
-	border: solid 1px #$input_all_border
+	border: solid 1px #$input_all_border;
 	color: #$input_all_color;
 }
 .gform_wrapper $form_ID input[type=password] {
 	background-color: #$input_all_bg;
-	border: solid 1px #$input_all_border
+	border: solid 1px #$input_all_border;
 	color: #$input_all_color;
 }
 
