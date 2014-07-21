@@ -49,7 +49,8 @@ function gf_custom_styles_add_defaults() {
 						"chk_default_options_db" => "",
 						"input_border_color" => "",
 						"submit_button_bg_color" => "",
-						"submit_button_border_color" => ""
+						"submit_button_border_color" => "",
+						"ajax_spinner_url" => $ajax_spinner_url
 
 		);
 		update_option('gf_custom_styles_options', $arr);
@@ -60,8 +61,16 @@ function gf_custom_styles_init(){
 	register_setting( 'gf_custom_styles_plugin_options', 'gf_custom_styles_options', 'gf_custom_styles_validate_options' );
 }
 
+	//Define custom gforms ajax spinner url
 
-// Render the Plugin options form
+	add_filter("gform_ajax_spinner_url", "gf_custom_styles_ajax_spinner", 10, 2);
+function gf_custom_styles_ajax_spinner($image_src, $form){
+
+    return $ajax_spinner_url;
+
+}
+
+// render options form
 function gf_custom_styles_render_form() {
 	?>
 	<div class="wrap">
@@ -158,7 +167,7 @@ function gf_custom_styles_render_form() {
 					</td>
 				</tr>
 
-				<!-- Textbox Control -->
+				<!-- textboxes -->
 				<tr>
 					<th scope="row"><?php _e('Custom class'); ?></th>
 					<td>
@@ -166,7 +175,15 @@ function gf_custom_styles_render_form() {
 					</td>
 				</tr>
 
-				<!-- Checkbox Buttons -->
+				<tr>
+					<th scope="row"><?php _e('Custom AJAX spinner'); ?></th>
+					<td>
+						<input type="text" size="10" name="gf_custom_styles_options[ajax_spinner_url]" value="<?php if ( isset($options['ajax_spinner_url']) ) { echo $options['ajax_spinner_url']; } ?>" />
+						Paste the url of a custom loader/spinner image here.
+					</td>
+				</tr>
+
+				<!-- checkbox options -->
 				<tr valign="top">
 					<th scope="row"><?php _e('General form styling options'); ?></th>
 					<td>
