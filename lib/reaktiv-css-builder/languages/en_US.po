@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rkvcss\n"
+"POT-Creation-Date: 2013-12-28 01:19-0500\n"
+"PO-Revision-Date: 2013-12-28 01:19-0500\n"
+"Last-Translator: Andrew Norcross <andrew@andrewnorcross.com>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-SearchPath-0: lib\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: reaktiv-css-builder.php:142
+msgid "The custom CSS has been generated."
+msgstr ""
+
+#: reaktiv-css-builder.php:147
+msgid "The custom CSS could not be generated."
+msgstr ""
+
+#: reaktiv-css-builder.php:218 reaktiv-css-builder.php:257
+msgid "CSS Builder"
+msgstr ""
+
+#: reaktiv-css-builder.php:275
+msgid "Custom CSS Builder"
+msgstr ""
+
+#: reaktiv-css-builder.php:282
+msgid ""
+"Enter your CSS below and it will display on the front end of the site. Keep "
+"in mind that you may have to be more specific that the existing CSS for it "
+"to take precedent."
+msgstr ""
+
+#: reaktiv-css-builder.php:286
+msgid "Save CSS"
+msgstr ""
+
+#: reaktiv-css-builder.php:308
+msgid "Export CSS Data"
+msgstr ""
+
+#: reaktiv-css-builder.php:311
+msgid "Export File"
+msgstr ""
+
+#: reaktiv-css-builder.php:312
+msgid "Export your entered CSS in JSON format to import on another site."
+msgstr ""
+
+#: reaktiv-css-builder.php:318
+msgid "Import CSS Data"
+msgstr ""
+
+#: reaktiv-css-builder.php:326
+msgid "Import File"
+msgstr ""
+
+#: reaktiv-css-builder.php:327
+msgid "Import a previously saved JSON file."
+msgstr ""
+
+#: reaktiv-css-builder.php:464
+msgid ""
+"No settings data has been saved. Please save your settings and try again."
+msgstr ""
+
+#: reaktiv-css-builder.php:474
+msgid "There was an error with your export. Please try again later."
+msgstr ""
+
+#: reaktiv-css-builder.php:511
+msgid "No file was provided. Please try again."
+msgstr ""
+
+#: reaktiv-css-builder.php:522
+msgid "The import file was not in JSON format. Please try again."
+msgstr ""
+
+#: reaktiv-css-builder.php:533
+msgid "The import file was not valid JSON. Please try again."
+msgstr ""
+
+#: reaktiv-css-builder.php:544
+msgid "The import settings could not be applied. Please try again."
+msgstr ""
+
+#: reaktiv-css-builder.php:555
+msgid "There was an error with your import. Please try again later."
+msgstr ""
+
+#: reaktiv-css-builder.php:570
+msgid "Your settings have been updated"
+msgstr ""

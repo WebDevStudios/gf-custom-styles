@@ -1,0 +1,17 @@
+.CodeMirror {
+	max-width: 800px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 5px;
+	min-height: 500px;
+	font-size: 16px;
+}
+
+
+div.reaktiv-data-setup input[type="file"] {
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}

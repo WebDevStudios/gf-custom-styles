@@ -43,7 +43,7 @@ function gf_custom_styles_add_defaults() {
 		delete_option('gf_custom_styles_options');
 		$arr = array(	"chk_button1" => "1",
 						"chk_button3" => "1",
-						"textarea_one" => "This type of control allows a large amount of information to be entered all at once. Set the 'rows' and 'cols' attributes to set the width and height.",
+						"textarea_one" => "GF custpm styles textarea one.",
 						"txt_one" => "Enter whatever you like here..",
 						"drp_select_box" => "four",
 						"chk_default_options_db" => "",
@@ -84,9 +84,9 @@ function gf_custom_styles_render_form() {
 
 			<table class="form-table">
 
-			<!-- TODO: get gforms here -->
+			<!-- TODO: get gforms here and return array -->
 				<tr>
-					<th scope="row">Select your form</th>
+					<th scope="row"><?php _e('Select your form'); ?></th>
 					<td>
 						<select name='gf_custom_styles_options[drp_select_box]'>
 							<option value='some form' <?php selected('one', $options['drp_select_box']); ?>>some form</option>
@@ -179,7 +179,7 @@ function gf_custom_styles_render_form() {
 					<th scope="row"><?php _e('Custom AJAX spinner'); ?></th>
 					<td>
 						<input type="text" size="10" name="gf_custom_styles_options[ajax_spinner_url]" value="<?php if ( isset($options['ajax_spinner_url']) ) { echo $options['ajax_spinner_url']; } ?>" />
-						Paste the url of a custom loader/spinner image here.
+						<?php _e('Paste the url of a custom loader/spinner image here.'); ?>
 					</td>
 				</tr>
 
@@ -188,13 +188,13 @@ function gf_custom_styles_render_form() {
 					<th scope="row"><?php _e('General form styling options'); ?></th>
 					<td>
 						<!-- First checkbox button -->
-						<label><input name="gf_custom_styles_options[chk_button1]" type="checkbox" value="1" <?php if (isset($options['chk_button1'])) { checked('1', $options['chk_button1']); } ?> /><?php _e('Show input borders'); ?></label><br />
+						<label><input name="gf_custom_styles_options[chk_button1]" type="checkbox" value="1" <?php if (isset($options['chk_button1'])) { checked('1', $options['chk_button1']); } ?> /><?php _e('Show input field borders'); ?></label><br />
 
 						<!-- Second checkbox button -->
-						<label><input name="gf_custom_styles_options[chk_button2]" type="checkbox" value="1" <?php if (isset($options['chk_button2'])) { checked('1', $options['chk_button2']); } ?> /><?php _e('Enable form background'); ?></label><br />
+						<label><input name="gf_custom_styles_options[chk_button2]" type="checkbox" value="1" <?php if (isset($options['chk_button2'])) { checked('1', $options['chk_button2']); } ?> /><?php _e('Enable form background styles'); ?></label><br />
 
 						<!-- Third checkbox button -->
-						<label><input name="gf_custom_styles_options[chk_button3]" type="checkbox" value="1" <?php if (isset($options['chk_button3'])) { checked('1', $options['chk_button3']); } ?> /><?php _e('Disable styles on mobile devices'); ?></label><br />
+						<label><input name="gf_custom_styles_options[chk_button3]" type="checkbox" value="1" <?php if (isset($options['chk_button3'])) { checked('1', $options['chk_button3']); } ?> /><?php _e('Disable all custom styles on mobile devices'); ?></label><br />
 
 					</td>
 				</tr>
@@ -203,7 +203,7 @@ function gf_custom_styles_render_form() {
 				<tr>
 					<th scope="row"><?php _e('Custom CSS'); ?></th>
 					<td>
-						<textarea name="gf_custom_styles_options[textarea_one]" rows="7" cols="50" type='textarea'><?php echo $options['textarea_one']; ?></textarea><br /><span style="color:#666666;margin-left:2px;"><?php _e('This CSS will only load on the selected form'); ?>.</span>
+						<textarea name="gf_custom_styles_options[textarea_one]" rows="7" cols="50" type='textarea'><?php echo $options['textarea_one']; ?></textarea><br /><span style="color:#666666;margin-left:2px;"><em><?php _e('This CSS will only load on the selected form'); ?></em>.</span>
 					</td>
 				</tr>
 
@@ -220,12 +220,18 @@ function gf_custom_styles_render_form() {
 // Sanitize and validate input.
 function gf_custom_styles_validate_options($input) {
 	 // strip html from textboxes
-	$input['textarea_one'] =  wp_filter_nohtml_kses($input['textarea_one']); // Sanitize textarea input (strip html tags, and escape characters)
-	$input['txt_one'] =  wp_filter_nohtml_kses($input['txt_one']); // Sanitize textbox input (strip html tags, and escape characters)
+	$input['textarea_one'] =  wp_filter_nohtml_kses($input['textarea_one']);
+
+	// Sanitize textarea input (strip html tags, and escape characters)
+
+	$input['txt_one'] =  wp_filter_nohtml_kses($input['txt_one']);
+
+	// Sanitize textbox input (strip html tags, and escape characters)
+
 	return $input;
 }
 
-// Display a Settings link on the main Plugins page
+// Display a Settings link on the main plugin page
 function gf_custom_styles_plugin_action_links( $links, $file ) {
 
 	if ( $file == plugin_basename( __FILE__ ) ) {
@@ -238,11 +244,12 @@ function gf_custom_styles_plugin_action_links( $links, $file ) {
 }
 
 // Just here for reference/example
+
 add_filter( "the_content", "gf_custom_styles_add_content" );
 function gf_custom_styles_add_content($text) {
 	$options = get_option('gf_custom_styles_options');
 	$select = $options['drp_select_box'];
-	$text = "<p style=\"color: #777;border:1px dashed #999; padding: 6px;\">Select box Plugin option is: {$select}</p>{$text}";
+	$text = "<p style=\"color: #777;border:1px dashed #999; padding: 6px;\">Select box plugin option is: {$select}</p>{$text}";
 	return $text;
 }
 
@@ -251,6 +258,7 @@ function gf_custom_styles_add_content($text) {
 
 //------------------------------------------
 if (class_exists("GFForms")) {
+
     GFForms::include_addon_framework();
 
     class GFCustomStyles extends GFAddOn {
