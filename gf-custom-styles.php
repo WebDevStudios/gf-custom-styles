@@ -147,16 +147,16 @@ function gf_custom_styles_render_form() {
 					<th scope="row"><?php _e('Submit button border radius'); ?></th>
 					<td>
 						<select name='gf_custom_styles_options[drp_select_box]'>
-							<option value='0px' <?php selected('0px', $options['drp_select_box']); ?>>0px</option>
-							<option value='1px' <?php selected('1px', $options['drp_select_box']); ?>>1px</option>
-							<option value='2px' <?php selected('2px', $options['drp_select_box']); ?>>2px</option>
-							<option value='3px' <?php selected('3px', $options['drp_select_box']); ?>>3px</option>
-							<option value='4px' <?php selected('4px', $options['drp_select_box']); ?>>4px</option>
-							<option value='5px' <?php selected('5px', $options['drp_select_box']); ?>>5px</option>
-							<option value='6px' <?php selected('6px', $options['drp_select_box']); ?>>6px</option>
-							<option value='7px' <?php selected('7px', $options['drp_select_box']); ?>>7px</option>
-							<option value='8px' <?php selected('8px', $options['drp_select_box']); ?>>8px</option>
-							<option value='9px' <?php selected('9px', $options['drp_select_box']); ?>>9px</option>
+							<option value='0px' <?php selected('0px',   $options['drp_select_box']); ?>>0px</option>
+							<option value='1px' <?php selected('1px',   $options['drp_select_box']); ?>>1px</option>
+							<option value='2px' <?php selected('2px',   $options['drp_select_box']); ?>>2px</option>
+							<option value='3px' <?php selected('3px',   $options['drp_select_box']); ?>>3px</option>
+							<option value='4px' <?php selected('4px',   $options['drp_select_box']); ?>>4px</option>
+							<option value='5px' <?php selected('5px',   $options['drp_select_box']); ?>>5px</option>
+							<option value='6px' <?php selected('6px',   $options['drp_select_box']); ?>>6px</option>
+							<option value='7px' <?php selected('7px',   $options['drp_select_box']); ?>>7px</option>
+							<option value='8px' <?php selected('8px',   $options['drp_select_box']); ?>>8px</option>
+							<option value='9px' <?php selected('9px',   $options['drp_select_box']); ?>>9px</option>
 							<option value='10px' <?php selected('10px', $options['drp_select_box']); ?>>10px</option>
 							<option value='11px' <?php selected('11px', $options['drp_select_box']); ?>>11px</option>
 							<option value='12px' <?php selected('12px', $options['drp_select_box']); ?>>12px</option>
@@ -219,7 +219,9 @@ function gf_custom_styles_render_form() {
 
 // Sanitize and validate input.
 function gf_custom_styles_validate_options($input) {
+
 	 // strip html from textboxes
+
 	$input['textarea_one'] =  wp_filter_nohtml_kses($input['textarea_one']);
 
 	// Sanitize textarea input (strip html tags, and escape characters)
@@ -232,12 +234,16 @@ function gf_custom_styles_validate_options($input) {
 }
 
 // Display a Settings link on the main plugin page
+
 function gf_custom_styles_plugin_action_links( $links, $file ) {
 
 	if ( $file == plugin_basename( __FILE__ ) ) {
 		$gf_custom_styles_links = '<a href="'.get_admin_url().'admin.php?page=gf-custom-styles">'.__('Settings').'</a>';
+
 		// make the 'Settings' link appear first
+
 		array_unshift( $links, $gf_custom_styles_links );
+
 	}
 
 	return $links;
@@ -246,13 +252,16 @@ function gf_custom_styles_plugin_action_links( $links, $file ) {
 // Just here for reference/example
 
 add_filter( "the_content", "gf_custom_styles_add_content" );
+
 function gf_custom_styles_add_content($text) {
+
 	$options = get_option('gf_custom_styles_options');
 	$select = $options['drp_select_box'];
 	$text = "<p style=\"color: #777;border:1px dashed #999; padding: 6px;\">Select box plugin option is: {$select}</p>{$text}";
-	return $text;
-}
 
+	return $text;
+
+}
 
 //GF add-on
 
@@ -299,14 +308,11 @@ if (class_exists("GFForms")) {
 
 }
 
-
-
         public function plugin_page() {
 
         gf_custom_styles_render_form();
 
          }
-
 
         public function form_settings_fields($form) {
             return array(
@@ -329,7 +335,6 @@ if (class_exists("GFForms")) {
                    )
                 )
             );
-
 
         }
 
@@ -371,8 +376,6 @@ if (class_exists("GFForms")) {
 
             return array_merge(parent::styles(), $styles);
         }
-
-
 
     }
 

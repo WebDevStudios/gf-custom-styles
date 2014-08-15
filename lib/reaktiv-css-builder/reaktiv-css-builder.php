@@ -624,5 +624,3 @@ class RKV_Custom_CSS_Builder {
 
 // Instantiate our class
 $RKV_Custom_CSS_Builder = new RKV_Custom_CSS_Builder();
-
-
