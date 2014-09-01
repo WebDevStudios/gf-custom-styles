@@ -207,12 +207,18 @@ function gf_custom_styles_validate_options($input) {
 	return $input;
 }
 
-// Display settings link
-
+/**
+ *  Display settings link
+ *
+ * @access public
+ * @param mixed $links
+ * @param mixed $file
+ * @return void
+ */
 function gf_custom_styles_plugin_action_links( $links, $file ) {
 
 	if ( $file == plugin_basename( __FILE__ ) ) {
-		$gf_custom_styles_links = '<a href="'.get_admin_url().'admin.php?page=gf-custom-styles">'.__('Settings').'</a>';
+		$gf_custom_styles_links = '<a href="'.get_admin_url().'admin.php?page=gf-custom-styles">'. __('Settings').'</a>';
 
 		// make the 'Settings' link appear first
 
@@ -223,16 +229,32 @@ function gf_custom_styles_plugin_action_links( $links, $file ) {
 	return $links;
 }
 
-// Just here for reference/example
 
-add_filter( "the_content", "gf_custom_styles_add_content" );
+add_action( "wp_head", "gf_custom_styles_add_content", 9999 );
 
-function gf_custom_styles_add_content($text) {
+/**
+ * Append inline styles to wp_head in lieu of generating an additional css file.
+ *
+ * @access public
+ * @param mixed $text
+ * @return void
+ */
+function gf_custom_styles_add_content( $css ) {
 
 	$options = get_option('gf_custom_styles_options');
 	$select = $options['drp_select_box'];
-	$text = "<p style=\"color: #777;border:1px dashed #999; padding: 6px;\">Select box plugin option is: {$select}</p>{$text}";
 
-	return $text;
+	// here for reference
+
+	// $css = "<style=\"color: #777;border:1px dashed #999; padding: 6px;\">Select box plugin option is: {$select}</p>{$text}";
+
+	$css = '<style>';
+	$css = '#gform_wrapper_' . $form_ID;
+	$css .= '</style>';
+
+
+	return $css;
+
+	do_action('gf_custom_styles_inject_css');
 
 }
