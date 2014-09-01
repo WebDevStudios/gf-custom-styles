@@ -17,17 +17,22 @@ function gf_custom_styles_add_defaults() {
 		delete_option('gf_custom_styles_options');
 		$arr = array(	"chk_button1" => "1",
 						"chk_button3" => "1",
-						"textarea_one" => "GF custpm styles textarea one.",
-						"txt_one" => "Enter whatever you like here..",
+						"custom_css" => "GF custom CSS here.",
 						"drp_select_box" => "four",
 						"chk_default_options_db" => "",
 						"input_border_color" => "",
+						"input_color" => "",
+						"input_border_radius" => "",
 						"submit_button_bg_color" => "",
+						"submit_button_color" => "",
 						"submit_button_border_color" => "",
-						"ajax_spinner_url" => $ajax_spinner_url
+						"submit_button_border_size" => "",
+						"submit_button_border_radius" => "",
+						"submit_button_bbg_color" => "",
+						"ajax_spinner_url" => null
 
 		);
-		update_option('gf_custom_styles_options', $arr);
+		update_option('gf_custom_styles_options', $arr );
 	}
 }
 
@@ -35,14 +40,21 @@ function gf_custom_styles_init(){
 	register_setting( 'gf_custom_styles_plugin_options', 'gf_custom_styles_options', 'gf_custom_styles_validate_options' );
 }
 
-	//Define custom gforms ajax spinner url
-
 	add_filter("gform_ajax_spinner_url", "gf_custom_styles_ajax_spinner", 10, 2);
-function gf_custom_styles_ajax_spinner($image_src, $form){
 
-    return $ajax_spinner_url;
+	/**
+	 * Define custom gforms ajax spinner url
+	 *
+	 * @access public
+	 * @param mixed $image_src
+	 * @param mixed $form
+	 * @return void
+	 */
+	function gf_custom_styles_ajax_spinner( $image_src, $form ) {
 
-}
+	    return $ajax_spinner_url;
+
+	}
 
 // render options form
 function gf_custom_styles_render_form() {
@@ -70,6 +82,15 @@ function gf_custom_styles_render_form() {
 					</td>
 				</tr>
 
+				<!-- General input colors -->
+
+				<tr>
+					<th scope="row"><?php _e('Input color'); ?></th>
+					<td>
+						<input name="gf_custom_styles_options[input_color]" type="text" value="<?php echo $options['input_color']; ?>" class="wp-color-picker-field" data-default-color="#000000" />
+					</td>
+				</tr>
+
 				<tr>
 					<th scope="row"><?php _e('Input border color'); ?></th>
 					<td>
@@ -78,26 +99,68 @@ function gf_custom_styles_render_form() {
 				</tr>
 
 				<tr>
+					<th scope="row"><?php _e('Input background color'); ?></th>
+					<td>
+						<input name="gf_custom_styles_options[input_background_color]" type="text" value="<?php echo $options['input_background_color']; ?>" class="wp-color-picker-field" data-default-color="#ffffff" />
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><?php _e('Input border size'); ?></th>
+					<td>
+						<select name='gf_custom_styles_options[input_border_size]'>
+							<option value='0px' <?php selected('0px', $options['input_border_size']); ?>>0px</option>
+							<option value='1px' <?php selected('1px', $options['input_border_size']); ?>>1px</option>
+							<option value='2px' <?php selected('2px', $options['input_border_size']); ?>>2px</option>
+							<option value='3px' <?php selected('3px', $options['input_border_size']); ?>>3px</option>
+							<option value='4px' <?php selected('4px', $options['input_border_size']); ?>>4px</option>
+							<option value='5px' <?php selected('5px', $options['input_border_size']); ?>>5px</option>
+							<option value='6px' <?php selected('6px', $options['input_border_size']); ?>>6px</option>
+							<option value='7px' <?php selected('7px', $options['input_border_size']); ?>>7px</option>
+							<option value='8px' <?php selected('8px', $options['input_border_size']); ?>>8px</option>
+							<option value='9px' <?php selected('9px', $options['input_border_size']); ?>>9px</option>
+							<option value='10px' <?php selected('10px', $options['input_border_size']); ?>>10px</option>
+							<option value='11px' <?php selected('11px', $options['input_border_size']); ?>>11px</option>
+							<option value='12px' <?php selected('12px', $options['input_border_size']); ?>>12px</option>
+							<option value='13px' <?php selected('13px', $options['input_border_size']); ?>>13px</option>
+							<option value='14px' <?php selected('14px', $options['input_border_size']); ?>>14px</option>
+							<option value='15px' <?php selected('15px', $options['input_border_size']); ?>>15px</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
 					<th scope="row"><?php _e('Input border radius'); ?></th>
 					<td>
-						<select name='gf_custom_styles_options[drp_select_box]'>
-							<option value='0px' <?php selected('0px', $options['drp_select_box']); ?>>0px</option>
-							<option value='1px' <?php selected('1px', $options['drp_select_box']); ?>>1px</option>
-							<option value='2px' <?php selected('2px', $options['drp_select_box']); ?>>2px</option>
-							<option value='3px' <?php selected('3px', $options['drp_select_box']); ?>>3px</option>
-							<option value='4px' <?php selected('4px', $options['drp_select_box']); ?>>4px</option>
-							<option value='5px' <?php selected('5px', $options['drp_select_box']); ?>>5px</option>
-							<option value='6px' <?php selected('6px', $options['drp_select_box']); ?>>6px</option>
-							<option value='7px' <?php selected('7px', $options['drp_select_box']); ?>>7px</option>
-							<option value='8px' <?php selected('8px', $options['drp_select_box']); ?>>8px</option>
-							<option value='9px' <?php selected('9px', $options['drp_select_box']); ?>>9px</option>
-							<option value='10px' <?php selected('10px', $options['drp_select_box']); ?>>10px</option>
-							<option value='11px' <?php selected('11px', $options['drp_select_box']); ?>>11px</option>
-							<option value='12px' <?php selected('12px', $options['drp_select_box']); ?>>12px</option>
-							<option value='13px' <?php selected('13px', $options['drp_select_box']); ?>>13px</option>
-							<option value='14px' <?php selected('14px', $options['drp_select_box']); ?>>14px</option>
-							<option value='15px' <?php selected('15px', $options['drp_select_box']); ?>>15px</option>
+						<select name='gf_custom_styles_options[input_border_radius]'>
+							<option value='0px' <?php selected('0px', $options['input_border_radius']); ?>>0px</option>
+							<option value='1px' <?php selected('1px', $options['input_border_radius']); ?>>1px</option>
+							<option value='2px' <?php selected('2px', $options['input_border_radius']); ?>>2px</option>
+							<option value='3px' <?php selected('3px', $options['input_border_radius']); ?>>3px</option>
+							<option value='4px' <?php selected('4px', $options['input_border_radius']); ?>>4px</option>
+							<option value='5px' <?php selected('5px', $options['input_border_radius']); ?>>5px</option>
+							<option value='6px' <?php selected('6px', $options['input_border_radius']); ?>>6px</option>
+							<option value='7px' <?php selected('7px', $options['input_border_radius']); ?>>7px</option>
+							<option value='8px' <?php selected('8px', $options['input_border_radius']); ?>>8px</option>
+							<option value='9px' <?php selected('9px', $options['input_border_radius']); ?>>9px</option>
+							<option value='10px' <?php selected('10px', $options['input_border_radius']); ?>>10px</option>
+							<option value='11px' <?php selected('11px', $options['input_border_radius']); ?>>11px</option>
+							<option value='12px' <?php selected('12px', $options['input_border_radius']); ?>>12px</option>
+							<option value='13px' <?php selected('13px', $options['input_border_radius']); ?>>13px</option>
+							<option value='14px' <?php selected('14px', $options['input_border_radius']); ?>>14px</option>
+							<option value='15px' <?php selected('15px', $options['input_border_radius']); ?>>15px</option>
 						</select>
+					</td>
+				</tr>
+
+				<!--Submit button styles-->
+
+				<tr>
+
+					<th scope="row">
+					<?php _e('Submit button text color'); ?></th>
+					<td>
+						<input name="gf_custom_styles_options[submit_button_color]" type="text" value="<?php echo $options['submit_button_color']; ?>" class="wp-color-picker-field" data-default-color="#000000" />
 					</td>
 				</tr>
 
@@ -118,34 +181,50 @@ function gf_custom_styles_render_form() {
 				</tr>
 
 				<tr>
-					<th scope="row"><?php _e('Submit button border radius'); ?></th>
+					<th scope="row"><?php _e('Submit button border size'); ?></th>
 					<td>
-						<select name='gf_custom_styles_options[drp_select_box]'>
-							<option value='0px' <?php selected('0px',   $options['drp_select_box']); ?>>0px</option>
-							<option value='1px' <?php selected('1px',   $options['drp_select_box']); ?>>1px</option>
-							<option value='2px' <?php selected('2px',   $options['drp_select_box']); ?>>2px</option>
-							<option value='3px' <?php selected('3px',   $options['drp_select_box']); ?>>3px</option>
-							<option value='4px' <?php selected('4px',   $options['drp_select_box']); ?>>4px</option>
-							<option value='5px' <?php selected('5px',   $options['drp_select_box']); ?>>5px</option>
-							<option value='6px' <?php selected('6px',   $options['drp_select_box']); ?>>6px</option>
-							<option value='7px' <?php selected('7px',   $options['drp_select_box']); ?>>7px</option>
-							<option value='8px' <?php selected('8px',   $options['drp_select_box']); ?>>8px</option>
-							<option value='9px' <?php selected('9px',   $options['drp_select_box']); ?>>9px</option>
-							<option value='10px' <?php selected('10px', $options['drp_select_box']); ?>>10px</option>
-							<option value='11px' <?php selected('11px', $options['drp_select_box']); ?>>11px</option>
-							<option value='12px' <?php selected('12px', $options['drp_select_box']); ?>>12px</option>
-							<option value='13px' <?php selected('13px', $options['drp_select_box']); ?>>13px</option>
-							<option value='14px' <?php selected('14px', $options['drp_select_box']); ?>>14px</option>
-							<option value='15px' <?php selected('15px', $options['drp_select_box']); ?>>15px</option>
+						<select name='gf_custom_styles_options[submit_button_border_size]'>
+							<option value='0px' <?php selected('0px',   $options['submit_button_border_size']); ?>>0px</option>
+							<option value='1px' <?php selected('1px',   $options['submit_button_border_size']); ?>>1px</option>
+							<option value='2px' <?php selected('2px',   $options['submit_button_border_size']); ?>>2px</option>
+							<option value='3px' <?php selected('3px',   $options['submit_button_border_size']); ?>>3px</option>
+							<option value='4px' <?php selected('4px',   $options['submit_button_border_size']); ?>>4px</option>
+							<option value='5px' <?php selected('5px',   $options['submit_button_border_size']); ?>>5px</option>
+							<option value='6px' <?php selected('6px',   $options['submit_button_border_size']); ?>>6px</option>
+							<option value='7px' <?php selected('7px',   $options['submit_button_border_size']); ?>>7px</option>
+							<option value='8px' <?php selected('8px',   $options['submit_button_border_size']); ?>>8px</option>
+							<option value='9px' <?php selected('9px',   $options['submit_button_border_size']); ?>>9px</option>
+							<option value='10px' <?php selected('10px', $options['submit_button_border_size']); ?>>10px</option>
+							<option value='11px' <?php selected('11px', $options['submit_button_border_size']); ?>>11px</option>
+							<option value='12px' <?php selected('12px', $options['submit_button_border_size']); ?>>12px</option>
+							<option value='13px' <?php selected('13px', $options['submit_button_border_size']); ?>>13px</option>
+							<option value='14px' <?php selected('14px', $options['submit_button_border_size']); ?>>14px</option>
+							<option value='15px' <?php selected('15px', $options['submit_button_border_size']); ?>>15px</option>
 						</select>
 					</td>
 				</tr>
 
-				<!-- textboxes -->
 				<tr>
-					<th scope="row"><?php _e('Custom class'); ?></th>
+					<th scope="row"><?php _e('Submit button border radius'); ?></th>
 					<td>
-						<input type="text" size="10" name="gf_custom_styles_options[txt_one]" value="<?php echo $options['txt_one']; ?>" />
+						<select name='gf_custom_styles_options[submit_button_border_radius]'>
+							<option value='0px' <?php selected('0px',   $options['submit_button_border_radius']); ?>>0px</option>
+							<option value='1px' <?php selected('1px',   $options['submit_button_border_radius']); ?>>1px</option>
+							<option value='2px' <?php selected('2px',   $options['submit_button_border_radius']); ?>>2px</option>
+							<option value='3px' <?php selected('3px',   $options['submit_button_border_radius']); ?>>3px</option>
+							<option value='4px' <?php selected('4px',   $options['submit_button_border_radius']); ?>>4px</option>
+							<option value='5px' <?php selected('5px',   $options['submit_button_border_radius']); ?>>5px</option>
+							<option value='6px' <?php selected('6px',   $options['submit_button_border_radius']); ?>>6px</option>
+							<option value='7px' <?php selected('7px',   $options['submit_button_border_radius']); ?>>7px</option>
+							<option value='8px' <?php selected('8px',   $options['submit_button_border_radius']); ?>>8px</option>
+							<option value='9px' <?php selected('9px',   $options['submit_button_border_radius']); ?>>9px</option>
+							<option value='10px' <?php selected('10px', $options['submit_button_border_radius']); ?>>10px</option>
+							<option value='11px' <?php selected('11px', $options['submit_button_border_radius']); ?>>11px</option>
+							<option value='12px' <?php selected('12px', $options['submit_button_border_radius']); ?>>12px</option>
+							<option value='13px' <?php selected('13px', $options['submit_button_border_radius']); ?>>13px</option>
+							<option value='14px' <?php selected('14px', $options['submit_button_border_radius']); ?>>14px</option>
+							<option value='15px' <?php selected('15px', $options['submit_button_border_radius']); ?>>15px</option>
+						</select>
 					</td>
 				</tr>
 
@@ -157,7 +236,7 @@ function gf_custom_styles_render_form() {
 					</td>
 				</tr>
 
-				<!-- checkbox options -->
+				<!-- Global options for this form -->
 				<tr valign="top">
 					<th scope="row"><?php _e('General form styling options'); ?></th>
 					<td>
@@ -175,9 +254,9 @@ function gf_custom_styles_render_form() {
 
 						<!-- custom css -->
 				<tr>
-					<th scope="row"><?php _e('Custom CSS'); ?></th>
+					<th scope="row"><?php _e('Optional custom CSS'); ?></th>
 					<td>
-						<textarea name="gf_custom_styles_options[textarea_one]" rows="7" cols="50" type='textarea'><?php echo $options['textarea_one']; ?></textarea><br /><span style="color:#666666;margin-left:2px;"><em><?php _e('This CSS will only load on the selected form'); ?></em>.</span>
+						<textarea name="gf_custom_styles_options[custom_css]" rows="7" cols="50" type='textarea'><?php echo $options['custom_css']; ?></textarea><br /><span style="color:#666666;margin-left:2px;"><em><?php _e('This CSS will only load on the selected form'); ?></em>.</span>
 					</td>
 				</tr>
 
@@ -191,36 +270,39 @@ function gf_custom_styles_render_form() {
 	<?php
 }
 
-// Sanitize and validate input.
+
+	/**
+	 * gf_custom_styles_validate_options function.
+	 *
+	 * @access private
+	 * @param mixed $input
+	 * @return void
+	 */
 function gf_custom_styles_validate_options($input) {
 
 	 // strip html from textboxes
 
-	$input['textarea_one'] =  wp_filter_nohtml_kses($input['textarea_one']);
-
-	// Sanitize textarea input (strip html tags, and escape characters)
-
-	$input['txt_one'] =  wp_filter_nohtml_kses($input['txt_one']);
+	$input['custom_css'] =  wp_filter_nohtml_kses($input['custom_css']);
 
 	// Sanitize textbox input (strip html tags, and escape characters)
 
 	return $input;
 }
 
-/**
- *  Display settings link
- *
- * @access public
- * @param mixed $links
- * @param mixed $file
- * @return void
- */
+	/**
+	 *  Display settings link
+	 *
+	 * @access public
+	 * @param mixed $links
+	 * @param mixed $file
+	 * @return void
+	 */
 function gf_custom_styles_plugin_action_links( $links, $file ) {
 
 	if ( $file == plugin_basename( __FILE__ ) ) {
 		$gf_custom_styles_links = '<a href="'.get_admin_url().'admin.php?page=gf-custom-styles">'. __('Settings').'</a>';
 
-		// make the 'Settings' link appear first
+		// Make the 'Settings' link appear first
 
 		array_unshift( $links, $gf_custom_styles_links );
 
@@ -232,29 +314,68 @@ function gf_custom_styles_plugin_action_links( $links, $file ) {
 
 add_action( "wp_head", "gf_custom_styles_add_content", 9999 );
 
-/**
- * Append inline styles to wp_head in lieu of generating an additional css file.
- *
- * @access public
- * @param mixed $text
- * @return void
- */
+	/**
+	 * Append inline styles to wp_head in lieu of generating an additional css file.
+	 *
+	 * @access public
+	 * @param mixed $text
+	 * @return void
+	 */
 function gf_custom_styles_add_content( $css ) {
 
+	// get the selected gravity form ID
+	$form_ID = '';
+
 	$options = get_option('gf_custom_styles_options');
-	$select = $options['drp_select_box'];
 
-	// here for reference
+		// General input style options
 
-	// $css = "<style=\"color: #777;border:1px dashed #999; padding: 6px;\">Select box plugin option is: {$select}</p>{$text}";
+		$input_background_color 	 = $options['input_background_color'];
 
-	$css = '<style>';
-	$css = '#gform_wrapper_' . $form_ID;
-	$css .= '</style>';
+		$input_color 				 = $options['input_color'];
 
+		$input_border_size 			 = $options['input_border_size'];
 
-	return $css;
+		$input_border_color 		 = $options['input_border_color'];
 
-	do_action('gf_custom_styles_inject_css');
+		$input_border_radius 		 = $options['input_border_radius'];
+
+		// Submit button style options
+
+		$submit_button_color 		 = $options['submit_button_color'];
+
+		$submit_button_bg_color 	 = $options['submit_button_bg_color'];
+
+		$submit_button_border_color  = $options['submit_button_border_color'];
+
+		$submit_button_border_size  = $options['submit_button_border_size'];
+
+		$submit_button_border_radius = $options['submit_button_border_radius'];
+
+		// Custom CSS textarea
+
+		$custom_css 	= $options['custom_css'];
+
+		// Generate and inject the css
+
+		$css  = '<style>';
+
+		// General input styles
+
+		$css .= '#gform_wrapper_' . $form_ID . ' input' . ' { border:' . $input_border_size . ' solid ' . $input_border_color . '; background:' .$input_background_color . '; border-radius:' . $input_border_radius . '; color:' . $input_color . ';}';
+
+		// Submit button styles
+
+		$css .= '#gform_wrapper_' . $form_ID . ' #gform_submit_button_' . $form_ID . ' { border:' . $submit_button_border_size . ' solid ' . $submit_button_border_color . '; background:' .$submit_button_bg_color . '; border-radius:' . $submit_button_border_radius . '; color:' . $submit_button_color . ';}';
+
+		// Custom css
+
+		$css .= $custom_css;
+
+		$css .= '</style>';
+
+	echo $css;
+
+		do_action('gf_custom_styles_inject_css');
 
 }
