@@ -14,3 +14,7 @@ Gravity Forms Custom Styles
 * @ramiabraham Rami Abraham
 
 * Jayvie Canono
+
+### To-do:
+
+* Hover and focus styles
