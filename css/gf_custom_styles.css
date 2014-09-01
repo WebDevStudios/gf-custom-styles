@@ -1,43 +1,14 @@
-/* style fixes: do not overwrite above the separator */
-.gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox],
-.gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio],
-.gform_wrapper.gf_browser_chrome .gfield_checkbox li input {
-	margin-left: 2px;
+/* Fixes margin-left issue for default gravity forms radio button styles */
+
+.gform_wrapper .gfield_checkbox li input[type=checkbox],
+.gform_wrapper .gfield_radio li input[type=radio],
+.gform_wrapper .gfield_checkbox li input {
+	margin-left: 1px;
 }
 
+/*
 
-/* styles below will be over-written by the plugin */
-
-/* VARS:
-$input_all_bg
-$input_all_color
-$input_all_border
-
-$input_text_bg
-$input_text_color
-$input_text_border
-
-$input_email_bg
-$input_email_color
-$input_email_border
-
-$input_tel_bg
-$input_tel_color
-$input_tel_border
-
-$input_number_bg
-$input_number_color
-$input_number_border
-
-$input_password_bg
-$input_password_color
-$input_password_border
-
-$textarea_bg
-$textarea_color
-$textarea_border
-
-*/
+	Added for reference
 
 $form_ID .gform_heading {
 	color: #$custom_color;
@@ -79,4 +50,6 @@ $form_ID .gform_heading {
 	background-color: #$custom_color;
 	color: #$custom_color;
 }
+
+*/
 
