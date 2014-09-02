@@ -23,6 +23,7 @@ Gravity Forms Custom Styles
 * Disable styles on mobile option
 * Custom styles per form
 * Syntax highlighting for custom css textarea
+* Defer checkbox and radio button fix to option
 
 ### How it works
 
