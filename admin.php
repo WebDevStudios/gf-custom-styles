@@ -490,7 +490,7 @@ function gf_custom_styles_add_content( $css ) {
 	// wp_is_mobile check
 
 	// get the selected gravity form ID
-	$form_ID = '.gform_wrapper';
+	$form_wrapper_class = '.gform_wrapper';
 
 	$options = get_option('gf_custom_styles_options');
 
@@ -552,19 +552,19 @@ function gf_custom_styles_add_content( $css ) {
 
 		// General input styles
 
-		$css .= $form_ID . ' input' . ' { border:' . $input_border_size . ' solid ' . $input_border_color . '; background:' .$input_background_color . '; border-radius:' . $input_border_radius . '; color:' . $input_color . ';}';
+		$css .= $form_wrapper_class . ' input' . ' { border:' . $input_border_size . ' solid ' . $input_border_color . '; background:' .$input_background_color . '; border-radius:' . $input_border_radius . '; color:' . $input_color . ';}';
 
 		// textarea input styles
 
-		$css .= $form_ID . ' .textarea' . ' { border:' . $textarea_border_size . ' solid ' . $textarea_border_color . '; background:' .$textarea_background_color . '; border-radius:' . $textarea_border_radius . '; color:' . $textarea_color . ';}';
+		$css .= $form_wrapper_class . ' .textarea' . ' { border:' . $textarea_border_size . ' solid ' . $textarea_border_color . '; background:' .$textarea_background_color . '; border-radius:' . $textarea_border_radius . '; color:' . $textarea_color . ';}';
 
 		// Submit button default styles
 
-		$css .= $form_ID . ' input[type="submit"] { border:' . $submit_button_border_size . ' solid ' . $submit_button_border_color . '; background:' .$submit_button_bg_color . '; border-radius:' . $submit_button_border_radius . '; color:' . $submit_button_color . ';}';
+		$css .= $form_wrapper_class . ' input[type="submit"] { border:' . $submit_button_border_size . ' solid ' . $submit_button_border_color . '; background:' .$submit_button_bg_color . '; border-radius:' . $submit_button_border_radius . '; color:' . $submit_button_color . ';}';
 
 		// Submit button hover/focus styles
 
-		$css .= $form_ID . ' input[type="submit"]:hover,' . $form_ID . ' input[type="submit"]:focus { border:' . $submit_button_border_size_hover . ' solid ' . $submit_button_border_color_hover . '; background:' .$submit_button_bg_color_hover . '; border-radius:' . $submit_button_border_radius_hover . '; color:' . $submit_button_color_hover . ';}';
+		$css .= $form_wrapper_class . ' input[type="submit"]:hover,' . $form_wrapper_class . ' input[type="submit"]:focus { border:' . $submit_button_border_size_hover . ' solid ' . $submit_button_border_color_hover . '; background:' .$submit_button_bg_color_hover . '; border-radius:' . $submit_button_border_radius_hover . '; color:' . $submit_button_color_hover . ';}';
 
 		// Custom css
 
