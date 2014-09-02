@@ -510,13 +510,13 @@ function gf_custom_styles_add_content( $css ) {
 
 		$textarea_background_color 	 = $options['textarea_background_color'];
 
-		$textarea_color 				 = $options['textarea_color'];
+		$textarea_color 			 = $options['textarea_color'];
 
-		$textarea_border_size 			 = $options['textarea_border_size'];
+		$textarea_border_size 		 = $options['textarea_border_size'];
 
 		$textarea_border_color 		 = $options['textarea_border_color'];
 
-		$textarea_border_radius 		 = $options['textarea_border_radius'];
+		$textarea_border_radius 	 = $options['textarea_border_radius'];
 
 		// Submit button default style options
 
@@ -526,7 +526,7 @@ function gf_custom_styles_add_content( $css ) {
 
 		$submit_button_border_color  = $options['submit_button_border_color'];
 
-		$submit_button_border_size  = $options['submit_button_border_size'];
+		$submit_button_border_size   = $options['submit_button_border_size'];
 
 		$submit_button_border_radius = $options['submit_button_border_radius'];
 
