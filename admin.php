@@ -60,8 +60,7 @@ function gf_custom_styles_render_form() {
 	?>
 	<div class="wrap">
 
-		<div class="icon32" id="icon-options-general"><br></div>
-		<p></p>
+		<div class="icon32" id="icon-options-general"></div>
 
 		<form method="post" action="options.php">
 			<?php settings_fields('gf_custom_styles_plugin_options'); ?>
@@ -75,7 +74,7 @@ function gf_custom_styles_render_form() {
 					<td>
 						<select name='gf_custom_styles_options[get_gforms_select]'>
 
-							<!-- Just a static example of the desired delect form-->
+							<!-- Just a static example of the desired delect form
 
 							<option value='some form' <?php selected('one', $options['get_gforms_select']); ?>>some form</option>
 							<option value='another form' <?php selected('two', $options['get_gforms_select']); ?>>another form</option>
