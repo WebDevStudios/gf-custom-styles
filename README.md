@@ -22,3 +22,4 @@ Gravity Forms Custom Styles
 * Hover and focus styles, via tabbed UI in admin settings
 * Disable styles on mobile option
 * Custom styles per form
+* Syntax highlighting for custom css textarea
