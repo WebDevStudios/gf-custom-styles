@@ -13,9 +13,9 @@ Gravity Forms Custom Styles
 
 ### Contributors
 
-* @ramiabraham Rami Abraham
+* @ramiabraham
 
-* Jayvie Canono
+* @onefinejay
 
 ### To-do:
 
