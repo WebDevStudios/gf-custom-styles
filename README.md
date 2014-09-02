@@ -1,6 +1,8 @@
 Gravity Forms Custom Styles
 ===========================
 
+* Super lightweight
+
 * Allows you to add styles to gravity forms using wp-color-picker and other inputs.
 
 * CSS is injected via `wp_head` in lieu of creating an additional css file. This is just to get rid various server file writing/creation issues (although you can usually write to wp_upload_dir ), as well as the additional HTTP request generated, and lastly, various caching issues.
@@ -17,4 +19,6 @@ Gravity Forms Custom Styles
 
 ### To-do:
 
-* Hover and focus styles
+* Hover and focus styles, via tabbed UI in admin settings
+* Disable styles on mobile option
+* Custom styles per form
