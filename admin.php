@@ -69,8 +69,8 @@ function gf_custom_styles_render_form() {
 
 			<table class="form-table">
 
-			<!-- TODO: get gforms here and return array -->
-				<tr>
+			<!-- TODO: get gforms here. Will require re-doing the UI to initially display a WP_List_Table-like layout for multiple styles -->
+				<!--<tr>
 					<th scope="row"><?php _e('Select your form'); ?></th>
 					<td>
 						<select name='gf_custom_styles_options[drp_select_box]'>
@@ -79,7 +79,7 @@ function gf_custom_styles_render_form() {
 							<option value='third form' <?php selected('three', $options['drp_select_box']); ?>>third form</option>
 						</select>
 					</td>
-				</tr>
+				</tr>-->
 
 				<!-- General input colors -->
 
