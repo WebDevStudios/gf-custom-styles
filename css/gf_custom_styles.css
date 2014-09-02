@@ -3,7 +3,7 @@
 .gform_wrapper .gfield_checkbox li input[type=checkbox],
 .gform_wrapper .gfield_radio li input[type=radio],
 .gform_wrapper .gfield_checkbox li input {
-	margin-left: 1px;
+	margin-left: 2px;
 }
 
 /*
