@@ -16,8 +16,8 @@ function gf_custom_styles_add_defaults() {
     if(($tmp['chk_default_options_db']=='1')||(!is_array($tmp))) {
 		delete_option('gf_custom_styles_options');
 		$arr = array(	"gf_custom_styles_disable_mobile" => "0",
-						"custom_css" => "GF custom CSS here.",
-						"drp_select_box" => "four",
+						"custom_css" => "",
+						"get_gforms_select" => "",
 						"chk_default_options_db" => "",
 						"input_border_color" => "",
 						"input_color" => "",
@@ -73,10 +73,13 @@ function gf_custom_styles_render_form() {
 				<!--<tr>
 					<th scope="row"><?php _e('Select your form'); ?></th>
 					<td>
-						<select name='gf_custom_styles_options[drp_select_box]'>
-							<option value='some form' <?php selected('one', $options['drp_select_box']); ?>>some form</option>
-							<option value='another form' <?php selected('two', $options['drp_select_box']); ?>>another form</option>
-							<option value='third form' <?php selected('three', $options['drp_select_box']); ?>>third form</option>
+						<select name='gf_custom_styles_options[get_gforms_select]'>
+
+							<!-- Just a static example of the desired delect form-->
+
+							<option value='some form' <?php selected('one', $options['get_gforms_select']); ?>>some form</option>
+							<option value='another form' <?php selected('two', $options['get_gforms_select']); ?>>another form</option>
+							<option value='third form' <?php selected('three', $options['get_gforms_select']); ?>>third form</option>
 						</select>
 					</td>
 				</tr>-->
@@ -84,7 +87,7 @@ function gf_custom_styles_render_form() {
 				<!-- General input colors -->
 
 				<tr>
-					<td><h3>General input fields</h3></td>
+					<td><h3><?php _e('General input fields'); ?></h3></td>
 				</tr>
 
 				<tr>
@@ -159,7 +162,7 @@ function gf_custom_styles_render_form() {
 				<!-- textarea colors -->
 
 				<tr>
-					<td><h3>Paragraph fields</h3></td>
+					<td><h3><?php _e('Paragraph fields'); ?></h3></td>
 				</tr>
 
 
@@ -235,11 +238,11 @@ function gf_custom_styles_render_form() {
 				<!--Submit button default styles-->
 
 				<tr>
-					<td><h3>Submit buttons</h3></td>
+					<td><h3><?php _e('Submit buttons'); ?></h3></td>
 				</tr>
 
 				<tr>
-					<td><h4>Default button styles</p></h4>
+					<td><h4><?php _e('Default button styles'); ?></p></h4>
 				</tr>
 
 				<tr>
@@ -318,7 +321,7 @@ function gf_custom_styles_render_form() {
 				<!--Submit button hover/focus styles-->
 
 				<tr>
-					<td><h4>Hover/focus button styles</p></h4>
+					<td><h4><?php _e('Hover/focus button styles'); ?></p></h4>
 				</tr>
 
 				<tr>
