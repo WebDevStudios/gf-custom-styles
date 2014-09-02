@@ -232,10 +232,14 @@ function gf_custom_styles_render_form() {
 					</td>
 				</tr>
 
-				<!--Submit button styles-->
+				<!--Submit button default styles-->
 
 				<tr>
 					<td><h3>Submit buttons</h3></td>
+				</tr>
+
+				<tr>
+					<td><h4>Default button styles</p></h4>
 				</tr>
 
 				<tr>
@@ -310,6 +314,87 @@ function gf_custom_styles_render_form() {
 						</select>
 					</td>
 				</tr>
+
+				<!--Submit button hover/focus styles-->
+
+				<tr>
+					<td><h4>Hover/focus button styles</p></h4>
+				</tr>
+
+				<tr>
+
+					<th scope="row">
+					<?php _e('Submit button hover/focus state text color'); ?></th>
+					<td>
+						<input name="gf_custom_styles_options[submit_button_color_hover]" type="text" value="<?php echo $options['submit_button_color_hover']; ?>" class="wp-color-picker-field" data-default-color="#000000" />
+					</td>
+				</tr>
+
+				<tr>
+
+					<th scope="row">
+					<?php _e('Submit button hover/focus state background color'); ?></th>
+					<td>
+						<input name="gf_custom_styles_options[submit_button_bg_color_hover]" type="text" value="<?php echo $options['submit_button_bg_color_hover']; ?>" class="wp-color-picker-field" data-default-color="#ffffff" />
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><?php _e('Submit button hover/focus state border color'); ?></th>
+					<td>
+						<input name="gf_custom_styles_options[submit_button_border_color_hover]" type="text" value="<?php echo $options['submit_button_border_color_hover']; ?>" class="wp-color-picker-field" data-default-color="#ffffff" />
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><?php _e('Submit button hover/focus state border size'); ?></th>
+					<td>
+						<select name='gf_custom_styles_options[submit_button_border_size_hover]'>
+							<option value='0px' <?php selected('0px',   $options['submit_button_border_size_hover']); ?>>0px</option>
+							<option value='1px' <?php selected('1px',   $options['submit_button_border_size_hover']); ?>>1px</option>
+							<option value='2px' <?php selected('2px',   $options['submit_button_border_size_hover']); ?>>2px</option>
+							<option value='3px' <?php selected('3px',   $options['submit_button_border_size_hover']); ?>>3px</option>
+							<option value='4px' <?php selected('4px',   $options['submit_button_border_size_hover']); ?>>4px</option>
+							<option value='5px' <?php selected('5px',   $options['submit_button_border_size_hover']); ?>>5px</option>
+							<option value='6px' <?php selected('6px',   $options['submit_button_border_size_hover']); ?>>6px</option>
+							<option value='7px' <?php selected('7px',   $options['submit_button_border_size_hover']); ?>>7px</option>
+							<option value='8px' <?php selected('8px',   $options['submit_button_border_size_hover']); ?>>8px</option>
+							<option value='9px' <?php selected('9px',   $options['submit_button_border_size_hover']); ?>>9px</option>
+							<option value='10px' <?php selected('10px', $options['submit_button_border_size_hover']); ?>>10px</option>
+							<option value='11px' <?php selected('11px', $options['submit_button_border_size_hover']); ?>>11px</option>
+							<option value='12px' <?php selected('12px', $options['submit_button_border_size_hover']); ?>>12px</option>
+							<option value='13px' <?php selected('13px', $options['submit_button_border_size_hover']); ?>>13px</option>
+							<option value='14px' <?php selected('14px', $options['submit_button_border_size_hover']); ?>>14px</option>
+							<option value='15px' <?php selected('15px', $options['submit_button_border_size_hover']); ?>>15px</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><?php _e('Submit button hover/focus state border radius'); ?></th>
+					<td>
+						<select name='gf_custom_styles_options[submit_button_border_radius_hover]'>
+							<option value='0px' <?php selected('0px',   $options['submit_button_border_radius_hover']); ?>>0px</option>
+							<option value='1px' <?php selected('1px',   $options['submit_button_border_radius_hover']); ?>>1px</option>
+							<option value='2px' <?php selected('2px',   $options['submit_button_border_radius_hover']); ?>>2px</option>
+							<option value='3px' <?php selected('3px',   $options['submit_button_border_radius_hover']); ?>>3px</option>
+							<option value='4px' <?php selected('4px',   $options['submit_button_border_radius_hover']); ?>>4px</option>
+							<option value='5px' <?php selected('5px',   $options['submit_button_border_radius_hover']); ?>>5px</option>
+							<option value='6px' <?php selected('6px',   $options['submit_button_border_radius_hover']); ?>>6px</option>
+							<option value='7px' <?php selected('7px',   $options['submit_button_border_radius_hover']); ?>>7px</option>
+							<option value='8px' <?php selected('8px',   $options['submit_button_border_radius_hover']); ?>>8px</option>
+							<option value='9px' <?php selected('9px',   $options['submit_button_border_radius_hover']); ?>>9px</option>
+							<option value='10px' <?php selected('10px', $options['submit_button_border_radius_hover']); ?>>10px</option>
+							<option value='11px' <?php selected('11px', $options['submit_button_border_radius_hover']); ?>>11px</option>
+							<option value='12px' <?php selected('12px', $options['submit_button_border_radius_hover']); ?>>12px</option>
+							<option value='13px' <?php selected('13px', $options['submit_button_border_radius_hover']); ?>>13px</option>
+							<option value='14px' <?php selected('14px', $options['submit_button_border_radius_hover']); ?>>14px</option>
+							<option value='15px' <?php selected('15px', $options['submit_button_border_radius_hover']); ?>>15px</option>
+						</select>
+					</td>
+				</tr>
+
+				<!-- Global options -->
 
 				<tr>
 					<td><h3>Global options</h3></td>
@@ -433,7 +518,7 @@ function gf_custom_styles_add_content( $css ) {
 
 		$textarea_border_radius 		 = $options['textarea_border_radius'];
 
-		// Submit button style options
+		// Submit button default style options
 
 		$submit_button_color 		 = $options['submit_button_color'];
 
@@ -444,6 +529,18 @@ function gf_custom_styles_add_content( $css ) {
 		$submit_button_border_size  = $options['submit_button_border_size'];
 
 		$submit_button_border_radius = $options['submit_button_border_radius'];
+
+		// Submit button hover/focus style options
+
+		$submit_button_color_hover 		   = $options['submit_button_color_hover'];
+
+		$submit_button_bg_color_hover 	   = $options['submit_button_bg_color_hover'];
+
+		$submit_button_border_color_hover  = $options['submit_button_border_color_hover'];
+
+		$submit_button_border_size_hover   = $options['submit_button_border_size_hover'];
+
+		$submit_button_border_radius_hover = $options['submit_button_border_radius_hover'];
 
 		// Custom CSS textarea
 
@@ -461,9 +558,13 @@ function gf_custom_styles_add_content( $css ) {
 
 		$css .= $form_ID . ' .textarea' . ' { border:' . $textarea_border_size . ' solid ' . $textarea_border_color . '; background:' .$textarea_background_color . '; border-radius:' . $textarea_border_radius . '; color:' . $textarea_color . ';}';
 
-		// Submit button styles
+		// Submit button default styles
 
 		$css .= $form_ID . ' input[type="submit"] { border:' . $submit_button_border_size . ' solid ' . $submit_button_border_color . '; background:' .$submit_button_bg_color . '; border-radius:' . $submit_button_border_radius . '; color:' . $submit_button_color . ';}';
+
+		// Submit button hover/focus styles
+
+		$css .= $form_ID . ' input[type="submit"]:hover,' . $form_ID . ' input[type="submit"]:focus { border:' . $submit_button_border_size_hover . ' solid ' . $submit_button_border_color_hover . '; background:' .$submit_button_bg_color_hover . '; border-radius:' . $submit_button_border_radius_hover . '; color:' . $submit_button_color_hover . ';}';
 
 		// Custom css
 
