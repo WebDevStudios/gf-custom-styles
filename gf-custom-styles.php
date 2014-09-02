@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 //GF add-on
 
-if (class_exists("GFForms")) {
+if ( class_exists("GFForms") ) {
 
     GFForms::include_addon_framework();
 
@@ -45,22 +45,10 @@ if (class_exists("GFForms")) {
         protected $_title = "Gravity Forms Custom Styles";
         protected $_short_title = "Custom Styles";
 
-        public function init(){
+        public function init() {
+
             parent::init();
-            add_filter("gform_submit_button", array($this, "form_submit_button"), 10, 2);
-
             add_action( 'admin_enqueue_scripts', array($this, 'plugin_page_scripts' ));
-        }
-
-        // Add the text in the plugin settings to the bottom of the form if enabled for this form
-        function form_submit_button($button, $form){
-            $settings = $this->get_form_settings($form);
-            if(isset($settings["enabled"]) && true == $settings["enabled"]){
-
-                $button = "<div>{$text}</div>" . $button;
-
-            }
-            return $button;
         }
 
 		public function plugin_page_scripts() {
