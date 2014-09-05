@@ -25,15 +25,9 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
-// get admin settings
-
-	require( plugin_dir_path( __FILE__ ) . 'admin.php');
-
 //GF add-on
 
-if ( ! class_exists("GFForms") ) {
-
-	function gf_custom_styles_no_gforms_notice() { ?>
+function gf_custom_styles_no_gforms_notice() { ?>
 
 	<div class="error">
         <p><?php _e( 'Uh oh! You need to activate the <a href="http://gravityforms.com" target="_blank">Gravity Forms</a> plugin to use the Gravity Forms Custom Styles add-on!', 'gf-custom-styles' ); ?></p>
@@ -41,9 +35,11 @@ if ( ! class_exists("GFForms") ) {
 
     <?php }
 
-		add_action( 'admin_notices', 'gf_custom_styles_no_gforms_notice' );
+	//add_action( 'admin_notices', 'gf_custom_styles_no_gforms_notice' );
 
-}
+// get admin settings
+
+	require( plugin_dir_path( __FILE__ ) . 'admin.php');
 
 // Extend GF add-on class
 
