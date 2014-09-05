@@ -31,6 +31,22 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 //GF add-on
 
+if ( ! class_exists("GFForms") ) {
+
+	function gf_custom_styles_no_gforms_notice() { ?>
+
+	<div class="error">
+        <p><?php _e( 'Uh oh! You need to activate the <a href="http://gravityforms.com" target="_blank">Gravity Forms</a> plugin to use the Gravity Forms Custom Styles add-on!', 'gf-custom-styles' ); ?></p>
+    </div>
+
+    <?php }
+
+		add_action( 'admin_notices', 'gf_custom_styles_no_gforms_notice' );
+
+}
+
+// Extend GF add-on class
+
 if ( class_exists("GFForms") ) {
 
     GFForms::include_addon_framework();
