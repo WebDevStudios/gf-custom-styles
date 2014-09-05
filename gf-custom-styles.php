@@ -27,17 +27,32 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 //GF add-on
 
-	if ( ! class_exists("GFForms") ) {
+if ( ! class_exists("GFForms") ) {
 
-function gf_custom_styles_no_gforms_notice() { ?>
+add_action('admin_notices', 'gf_custom_styles_no_gforms_notice');
 
-	<div class="error">
-        <p><?php _e( 'Uh oh! You need to activate the <a href="http://gravityforms.com" target="_blank">Gravity Forms</a> plugin to use the Gravity Forms Custom Styles add-on!', 'gf-custom-styles' ); ?></p>
-    </div>
+	function gf_custom_styles_no_gforms_notice() {
+		global $current_user ;
+	        $user_id = $current_user->ID;
 
-    <?php }
+		if ( ! get_user_meta($user_id, 'gf_custom_styles_ignore_notice') ) {
+	        echo '<div class="error"><p>';
+	        printf(__('Uh oh! You need to activate the <a href="http://gravityforms.com" target="_blank">Gravity Forms</a> plugin to use the Gravity Forms Custom Styles add-on! | <a href="%1$s">Hide Notice</a>'), '?gf_custom_styles_ignore_notice=0');
+	        echo "</p></div>";
+		}
+	}
 
-	//add_action( 'admin_notices', 'gf_custom_styles_no_gforms_notice' );
+	add_action('admin_init', 'gf_custom_styles_no_gforms_notice_ignore');
+
+	function gf_custom_styles_no_gforms_notice_ignore() {
+		global $current_user;
+	        $user_id = $current_user->ID;
+
+	        if ( isset($_GET['gf_custom_styles_ignore_notice']) && '0' == $_GET['gf_custom_styles_ignore_notice'] ) {
+	             add_user_meta($user_id, 'gf_custom_styles_ignore_notice', 'true', true);
+		}
+	}
+
 
 } // end GFForms exists check
 
