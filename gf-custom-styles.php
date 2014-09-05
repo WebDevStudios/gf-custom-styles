@@ -27,6 +27,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 //GF add-on
 
+	if ( ! class_exists("GFForms") ) {
+
 function gf_custom_styles_no_gforms_notice() { ?>
 
 	<div class="error">
@@ -36,6 +38,8 @@ function gf_custom_styles_no_gforms_notice() { ?>
     <?php }
 
 	//add_action( 'admin_notices', 'gf_custom_styles_no_gforms_notice' );
+
+} // end GFForms exists check
 
 // get admin settings
 
