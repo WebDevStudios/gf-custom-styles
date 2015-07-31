@@ -1,4 +1,4 @@
-// Adds colorpicker to admin area
+// Adds colorpicker to GFCS admin area
 jQuery(document).ready(function($){
-    $('.wp-color-picker-field').wpColorPicker();
+    $('.gfcs-wp-color-picker-field').wpColorPicker();
 });

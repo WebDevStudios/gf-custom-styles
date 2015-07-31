@@ -92,7 +92,7 @@ function gf_custom_styles_render_form() {
 				<tr>
 					<th scope="row"><?php _e('Input text color'); ?></th>
 					<td>
-						<input name="gf_custom_styles_options[input_color]" type="text" value="<?php echo $options['input_color']; ?>" class="wp-color-picker-field" data-default-color="#000000" />
+						<input name="gf_custom_styles_options[input_color]" type="text" value="<?php echo $options['input_color']; ?>" class="gfcs-wp-color-picker-field" data-default-color="#000000" />
 					</td>
 				</tr>
 
